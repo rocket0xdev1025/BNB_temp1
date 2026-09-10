@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donkey CZ | $DONKEY on BNB Chain</title>
+    <meta
+      name="description"
+      content="Donkey CZ ($DONKEY) — the thick-muscle CZ meme on BNB Chain. Buy $DONKEY with BNB."
+    />
+    <meta property="og:title" content="Donkey CZ | $DONKEY" />
+    <meta property="og:description" content="Thin mask. Thick muscle. $DONKEY on BNB Chain." />
+    <meta property="og:image" content="banner.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="banner.jpg" />
+    <link rel="icon" href="logo.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Outline&family=Kanit:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bnb: { yellow: "#F0B90B", gold: "#FCD535", dark: "#0B0E11" },
+              horn: "#4EC3FF",
+              hide: "#C4A574",
+            },
+            fontFamily: {
+              poster: ["Bungee", "cursive"],
+              outline: ["Bungee Outline", "cursive"],
+              sans: ["Kanit", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: #0b0e11;
+      }
+      ::selection {
+        background: #4ec3ff;
+        color: #0b0e11;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #f0b90b;
+        border-radius: 99px;
+      }
+
+      .arena {
+        background:
+          radial-gradient(ellipse 80% 60% at 18% 42%, rgba(240, 185, 11, 0.22), transparent 55%),
+          radial-gradient(ellipse 50% 50% at 88% 18%, rgba(78, 195, 255, 0.16), transparent 50%),
+          radial-gradient(ellipse 70% 40% at 70% 100%, rgba(196, 165, 116, 0.1), transparent 55%),
+          #0b0e11;
+      }
+
+      .fibers {
+        background-image: repeating-radial-gradient(
+          circle at 0 50%,
+          transparent 0,
+          transparent 28px,
+          rgba(240, 185, 11, 0.045) 29px,
+          transparent 32px
+        );
+      }
+
+      .spin-slow {
+        animation: spin 18s linear infinite;
+      }
+      .spin-rev {
+        animation: spin 11s linear infinite reverse;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .breathe {
+        animation: breathe 4s ease-in-out infinite;
+      }
+      @keyframes breathe {
+        0%,
+        100% {
+          filter: drop-shadow(0 0 18px rgba(240, 185, 11, 0.45)) drop-shadow(0 0 40px rgba(78, 195, 255, 0.2));
+        }
+        50% {
+          filter: drop-shadow(0 0 34px rgba(78, 195, 255, 0.55)) drop-shadow(0 0 50px rgba(240, 185, 11, 0.3));
+        }
+      }
+
+      .v-marquee {
+        writing-mode: vertical-rl;
+        animation: vslide 16s linear infinite;
+      }
+      @keyframes vslide {
+        from {
+          transform: translateY(-20%);
+        }
+        to {
+          transform: translateY(20%);
+        }
+      }
+
+      .plate {
+        aspect-ratio: 1;
+        border-radius: 9999px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+      .plate::before {
+        content: "";
+        position: absolute;
+        inset: 18%;
+        border-radius: 9999px;
+        background: #0b0e11;
+        box-shadow: inset 0 0 0 3px currentColor;
+      }
+      .plate > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .bar {
+        height: 22px;
+        background: linear-gradient(180deg, #fff3b0, #f0b90b 40%, #a87a00);
+        box-shadow: 0 8px 20px rgba(240, 185, 11, 0.35);
+      }
+
+      .jumbo-mask {
+        background: linear-gradient(180deg, transparent 40%, rgba(11, 14, 17, 0.75) 100%);
+      }
+
+      #dexscreener-embed {
+        position: relative;
+        width: 100%;
+        padding-bottom: 125%;
+      }
+      @media (min-width: 1024px) {
+        #dexscreener-embed {
+          padding-bottom: 58%;
+        }
+      }
+      #dexscreener-embed iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .rope {
+        box-shadow:
+          0 0 0 4px #0b0e11,
+          0 0 0 8px #f0b90b,
+          0 0 0 12px #0b0e11,
+          0 0 0 16px #4ec3ff;
+      }
+    </style>
+  </head>
+  <body class="arena text-white font-sans antialiased overflow-x-hidden">
+    <div class="pointer-events-none fixed inset-0 fibers opacity-70"></div>
+
+    <!-- Vertical edge ticker -->
+    <div
+      class="pointer-events-none fixed left-0 top-0 z-20 hidden h-screen w-10 overflow-hidden border-r border-bnb-yellow/30 bg-black/40 lg:block"
+    >
+      <p class="v-marquee font-poster text-[11px] tracking-[0.4em] text-bnb-yellow/80">
+        $DONKEY · THICK MUSCLE · THIN SKIN VERSION · BNB · $DONKEY · THICK MUSCLE · THIN SKIN VERSION · BNB ·
+      </p>
+    </div>
+
+    <!-- Floating HUD -->
+    <header class="fixed top-4 right-4 left-4 z-50 lg:left-16">
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-full border border-bnb-yellow/40 bg-black/70 px-3 py-2 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+      >
+        <a href="#top" class="flex items-center gap-2 pl-1">
+          <img src="logo.png" alt="Donkey CZ" class="h-11 w-11 rounded-full" />
+          <span class="hidden font-poster text-sm text-bnb-gold sm:block">DONKEY</span>
+        </a>
+        <nav class="hidden items-center gap-6 text-xs font-bold uppercase tracking-[0.22em] text-white/70 md:flex">
+          <a href="#arena" class="hover:text-bnb-gold">Arena</a>
+          <a href="#howtobuy" class="hover:text-bnb-gold">How to Buy</a>
+          <a href="#chart" class="hover:text-bnb-gold">Chart</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a
+            href="https://x.com/STONKBULLx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-black ring-2 ring-bnb-yellow"
+            aria-label="X"
+          >
+            <img src="x.png" alt="X" class="h-5 w-5 object-contain" />
+          </a>
+          <a
+            href="https://dexscreener.com/bsc/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hidden rounded-full px-4 py-2 text-xs font-extrabold uppercase tracking-widest text-horn ring-2 ring-horn sm:inline-flex"
+          >
+            Chart
+          </a>
+          <a
+            href="https://flap.sh/bnb/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full bg-bnb-yellow px-4 py-2 text-xs font-extrabold uppercase tracking-widest text-black"
+          >
+            Buy Now
+          </a>
+          <button
+            id="menu-btn"
+            class="md:hidden flex h-10 w-10 items-center justify-center rounded-full ring-2 ring-bnb-yellow"
+            aria-label="Menu"
+          >
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4">
+              <path d="M4 6h10M4 9h10M4 12h10" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="mx-auto mt-2 hidden max-w-6xl rounded-3xl bg-black/90 p-5 md:hidden">
+        <div class="flex flex-col gap-3 font-bold uppercase tracking-widest">
+          <a href="#arena">Arena</a>
+          <a href="#howtobuy">How to Buy</a>
+          <a href="#chart">Chart</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top" class="relative z-10">
+      <!-- FIGHT POSTER HERO -->
+      <section class="relative min-h-screen lg:pl-10">
+        <p
+          class="pointer-events-none absolute right-[-4%] top-24 hidden font-outline text-[14rem] leading-none text-bnb-yellow/10 lg:block"
+        >
+          $DONKEY
+        </p>
+
+        <div class="mx-auto grid min-h-screen max-w-7xl items-center gap-6 px-4 pb-16 pt-28 lg:grid-cols-12 lg:px-8">
+          <!-- Giant mascot -->
+          <div class="relative flex items-center justify-center lg:col-span-6 lg:-ml-8">
+            <svg class="spin-slow absolute h-[118%] w-[118%] max-w-none" viewBox="0 0 200 200" aria-hidden="true">
+              <circle
+                cx="100"
+                cy="100"
+                r="92"
+                fill="none"
+                stroke="#F0B90B"
+                stroke-width="2.5"
+                stroke-dasharray="14 11"
+                opacity="0.85"
+              />
+            </svg>
+            <svg class="spin-rev absolute h-[102%] w-[102%] max-w-none" viewBox="0 0 200 200" aria-hidden="true">
+              <circle
+                cx="100"
+                cy="100"
+                r="92"
+                fill="none"
+                stroke="#4EC3FF"
+                stroke-width="1.6"
+                stroke-dasharray="4 14"
+                opacity="0.9"
+              />
+            </svg>
+            <img
+              src="logo.png"
+              alt="Donkey CZ mascot"
+              class="breathe relative z-10 w-[78%] max-w-md lg:max-w-xl"
+            />
+          </div>
+
+          <!-- Poster copy -->
+          <div class="relative z-10 lg:col-span-6 lg:pl-4">
+            <div
+              class="mb-5 inline-flex items-center gap-2 rounded-full bg-horn/15 px-4 py-1 text-[11px] font-extrabold uppercase tracking-[0.35em] text-horn ring-1 ring-horn/50"
+            >
+              Main Event · BNB Chain
+            </div>
+            <h1 class="font-poster text-[2.6rem] leading-[0.95] sm:text-6xl lg:text-7xl">
+              <span class="block text-white">THIN</span>
+              <span class="block text-bnb-yellow">SKIN</span>
+              <span class="block text-horn">VERSION</span>
+            </h1>
+            <p class="mt-4 font-poster text-4xl text-hide sm:text-5xl">$DONKEY</p>
+            <p class="mt-5 max-w-md text-lg font-semibold leading-relaxed text-white/75">
+              Thin mask. Thick muscle. The jacked CZ meme that racks bags and never skips a set on BNB Chain.
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href="https://flap.sh/bnb/TBA"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-full bg-bnb-yellow px-8 py-3.5 font-poster text-lg text-black"
+              >
+                BUY NOW
+              </a>
+              <a
+                href="https://dexscreener.com/bsc/TBA"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-full px-8 py-3.5 font-poster text-lg text-horn ring-2 ring-horn"
+              >
+                CHART
+              </a>
+            </div>
+
+            <div class="mt-8 flex max-w-md items-center gap-3 rounded-full bg-black/60 p-2 ring-2 ring-bnb-yellow">
+              <div class="flex-1 px-4">
+                <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/45">Contract</p>
+                <p id="ca-display" class="font-poster text-xl text-bnb-gold">TBA</p>
+              </div>
+              <button
+                id="copy-ca"
+                type="button"
+                class="rounded-full bg-bnb-yellow px-5 py-3 text-xs font-extrabold uppercase tracking-widest text-black"
+              >
+                Copy CA
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Jumbotron banner — finally shown, not buried -->
+      <section id="arena" class="relative lg:pl-10">
+        <div class="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] px-4 lg:px-8">
+          <div class="rope relative overflow-hidden rounded-[2.2rem]">
+            <img src="banner.jpg" alt="Donkey CZ arena banner" class="h-[42vh] w-full object-cover sm:h-[52vh]" />
+            <div class="jumbo-mask absolute inset-0"></div>
+            <div class="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-6 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p class="font-poster text-xs tracking-[0.4em] text-horn">THE ARENA</p>
+                <p class="font-poster text-2xl text-white sm:text-4xl">THIN SKIN. THICK GAINS.</p>
+              </div>
+              <p class="max-w-sm text-sm font-semibold text-hide">
+                Blue horns. Gold coin. Baby-blue mask. The only thing thin is the skin — the pump stays heavy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fighter chips -->
+      <section class="mx-auto max-w-7xl px-4 py-16 lg:pl-16 lg:px-8">
+        <div class="grid gap-4 sm:grid-cols-3">
+          <div class="rounded-[2rem] bg-black/50 p-6 ring-1 ring-bnb-yellow/40">
+            <p class="font-poster text-bnb-yellow">MASK ON</p>
+            <p class="mt-2 font-semibold text-white/70">Surgical-blue drip. CZ energy with gym lighting.</p>
+          </div>
+          <div class="rounded-[2rem] bg-black/50 p-6 ring-1 ring-horn/50">
+            <p class="font-poster text-horn">HORNS UP</p>
+            <p class="mt-2 font-semibold text-white/70">Ice-blue horns. Every candle is a new personal record.</p>
+          </div>
+          <div class="rounded-[2rem] bg-black/50 p-6 ring-1 ring-hide/50">
+            <p class="font-poster text-hide">STACK BNB</p>
+            <p class="mt-2 font-semibold text-white/70">Load the plates. Swap into $DONKEY. Hold like a rack.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW TO BUY — Olympic plates on a barbell -->
+      <section id="howtobuy" class="relative py-8 lg:pl-10">
+        <div class="mx-auto max-w-7xl px-4 lg:px-8">
+          <div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="font-poster text-xs tracking-[0.4em] text-horn">THE WORKOUT</p>
+              <h2 class="mt-2 font-poster text-4xl leading-none sm:text-6xl">
+                HOW TO BUY<br /><span class="text-bnb-yellow">$DONKEY</span>
+              </h2>
+              <p class="mt-4 max-w-lg font-semibold text-white/70">
+                Four plates. One barbell. Fund with BNB, then lift $DONKEY on Flap.
+              </p>
+            </div>
+            <a
+              href="https://flap.sh/bnb/TBA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex w-fit rounded-full bg-bnb-yellow px-7 py-3 font-poster text-black"
+            >
+              BUY NOW
+            </a>
+          </div>
+
+          <!-- Barbell -->
+          <div class="relative py-10">
+            <div class="bar pointer-events-none absolute left-0 right-0 top-1/2 hidden -translate-y-1/2 rounded-full lg:block"></div>
+            <div class="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+              <article class="plate mx-auto h-52 w-52 text-bnb-yellow ring-[10px] ring-bnb-yellow" style="background: radial-gradient(circle, #2a2208 42%, #f0b90b 43% 100%)">
+                <p class="font-poster text-3xl">01</p>
+                <h3 class="font-poster text-sm">WALLET</h3>
+                <p class="mt-1 max-w-[7.5rem] text-[11px] font-semibold leading-snug text-white/80">
+                  MetaMask or Trust. Switch to BNB Chain.
+                </p>
+              </article>
+              <article class="plate mx-auto h-56 w-56 text-bnb-gold ring-[12px] ring-bnb-gold" style="background: radial-gradient(circle, #0b0e11 42%, #fcd535 43% 100%)">
+                <p class="font-poster text-3xl text-bnb-gold">02</p>
+                <h3 class="font-poster text-sm text-bnb-gold">LOAD BNB</h3>
+                <p class="mt-1 max-w-[8rem] text-[11px] font-semibold leading-snug text-white/80">
+                  Buy BNB on Binance. Send it to your wallet.
+                </p>
+              </article>
+              <article class="plate mx-auto h-52 w-52 text-horn ring-[10px] ring-horn" style="background: radial-gradient(circle, #062033 42%, #4ec3ff 43% 100%)">
+                <p class="font-poster text-3xl">03</p>
+                <h3 class="font-poster text-sm">FLAP.SH</h3>
+                <p class="mt-1 max-w-[7.5rem] text-[11px] font-semibold leading-snug text-white/80">
+                  Hit Buy Now. Connect. Step onto the $DONKEY floor.
+                </p>
+              </article>
+              <article class="plate mx-auto h-48 w-48 text-hide ring-[10px] ring-hide" style="background: radial-gradient(circle, #1c160f 42%, #c4a574 43% 100%)">
+                <p class="font-poster text-3xl">04</p>
+                <h3 class="font-poster text-sm">SWAP $DONKEY</h3>
+                <p class="mt-1 max-w-[7rem] text-[11px] font-semibold leading-snug text-white/85">
+                  Paste CA. Swap BNB → $DONKEY. Rack it.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <div class="mt-4 flex flex-col items-stretch gap-0 overflow-hidden rounded-full bg-black/70 ring-2 ring-bnb-yellow sm:flex-row sm:items-center">
+            <div class="flex-1 px-6 py-4">
+              <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/45">Verify the CA · no fake plates</p>
+              <p id="ca-display-2" class="font-poster text-2xl text-bnb-gold">TBA</p>
+            </div>
+            <button
+              id="copy-ca-2"
+              type="button"
+              class="bg-bnb-yellow px-8 py-4 text-sm font-extrabold uppercase tracking-widest text-black sm:rounded-none"
+            >
+              Copy CA
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHART — boxing ring frame -->
+      <section id="chart" class="mx-auto max-w-7xl px-4 py-20 lg:pl-16 lg:px-8">
+        <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="font-poster text-xs tracking-[0.4em] text-horn">THE SCOREBOARD</p>
+            <h2 class="mt-2 font-poster text-4xl sm:text-6xl">$DONKEY <span class="text-bnb-yellow">CHART</span></h2>
+          </div>
+          <a
+            href="https://dexscreener.com/bsc/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex w-fit rounded-full px-7 py-3 font-poster text-horn ring-2 ring-horn"
+          >
+            OPEN CHART
+          </a>
+        </div>
+        <div class="overflow-hidden rounded-[2rem] bg-black rope">
+          <div class="flex items-center justify-between bg-bnb-dark px-5 py-3">
+            <p class="text-xs font-extrabold uppercase tracking-[0.28em] text-bnb-gold">$DONKEY / BNB · Dexscreener</p>
+            <span class="text-xs font-extrabold uppercase tracking-[0.28em] text-horn">Live lift</span>
+          </div>
+          <div id="dexscreener-embed">
+            <iframe
+              title="Donkey CZ $DONKEY Dexscreener chart"
+              src="https://dexscreener.com/bsc/TBA?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=1&chartType=usd&interval=15"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="relative z-10 border-t border-bnb-yellow/30 bg-black/80 lg:pl-10">
+      <div class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+        <div class="flex items-center gap-3">
+          <img src="logo.png" alt="" class="h-12 w-12 rounded-full" />
+          <div>
+            <p class="font-poster text-sm text-bnb-yellow">THIN SKIN VERSION</p>
+            <p class="text-xs font-bold tracking-[0.3em] text-horn">$DONKEY · BNB CHAIN</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <a
+            href="https://x.com/STONKBULLx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-black ring-2 ring-bnb-yellow"
+          >
+            <img src="x.png" alt="X" class="h-5 w-5 object-contain" />
+          </a>
+          <a
+            href="https://dexscreener.com/bsc/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full px-4 py-2 text-xs font-extrabold uppercase tracking-widest text-horn ring-2 ring-horn"
+          >
+            Chart
+          </a>
+          <a
+            href="https://flap.sh/bnb/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full bg-bnb-yellow px-4 py-2 text-xs font-extrabold uppercase tracking-widest text-black"
+          >
+            Buy Now
+          </a>
+        </div>
+      </div>
+      <p class="px-4 pb-6 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/35">
+        $DONKEY is a meme. Not financial advice. Lift your own bags. DYOR.
+      </p>
+    </footer>
+
+    <div
+      id="toast"
+      class="pointer-events-none fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 rounded-full bg-bnb-yellow px-5 py-2 font-poster text-sm text-black opacity-0 transition"
+    >
+      CA COPIED
+    </div>
+
+    <script>
+      const CA = "TBA";
+      const toast = document.getElementById("toast");
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      async function copyCA(button) {
+        try {
+          await navigator.clipboard.writeText(CA);
+        } catch (err) {
+          const area = document.createElement("textarea");
+          area.value = CA;
+          document.body.appendChild(area);
+          area.select();
+          document.execCommand("copy");
+          area.remove();
+        }
+        const original = button.textContent;
+        button.textContent = "Copied";
+        toast.classList.remove("opacity-0");
+        toast.classList.add("opacity-100");
+        setTimeout(() => {
+          button.textContent = original;
+          toast.classList.add("opacity-0");
+          toast.classList.remove("opacity-100");
+        }, 1600);
+      }
+
+      document.getElementById("copy-ca").addEventListener("click", (e) => copyCA(e.currentTarget));
+      document.getElementById("copy-ca-2").addEventListener("click", (e) => copyCA(e.currentTarget));
+      menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+      });
+    </script>
+  </body>
+</html>
